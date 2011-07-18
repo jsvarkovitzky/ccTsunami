@@ -6,8 +6,6 @@ This module is imported by the plotting routines and then the
 function setplot is called to set the plot parameters.
     
 """ 
-from pylab import loadtxt
-#gaugeData = loadtxt('ts2a.txt',skiprows=7)
 
 #--------------------------
 def setplot(plotdata):
@@ -22,31 +20,18 @@ def setplot(plotdata):
 
 
     from pyclaw.plotters import colormaps, geoplot
+
     plotdata.clearfigures()  # clear any old figures,axes,items data
-    #from pylab import loadtxt
-
-
 
 
     # To plot gauge locations on pcolor or contour plot, use this as
-    # an afteraxis function:gaugeTime
+    # an afteraxis function:
 
     def addgauges(current_data):
         from pyclaw.plotters import gaugetools
         gaugetools.plot_gauge_locations(current_data.plotdata, \
              gaugenos='all', format_string='ko', add_labels=True)
     
-#    if 0:
-#        gaugeData = loadtxt('ts2a.txt',skiprows=7)
-#        gaugeTime = gaugeData[:,0]
-#        g1 = gaugeData[:,1]
-#        g2 = gaugeData[:,2]
-#        g3 = gaugeData[:,3]
-#        g4 = gaugeData[:,4]
-#        g6 = gaugeData[:,5]
-#        g9 = gaugeData[:,6]
-#        g16 = gaugeData[:,7]
-#        g22 = gaugeData[:,8]
 
     #-----------------------------------------
     # Figure for pcolor plot
@@ -64,10 +49,10 @@ def setplot(plotdata):
     #plotitem.plot_var = geoplot.surface
     plotitem.plot_var = geoplot.surface_or_depth
     plotitem.pcolor_cmap = geoplot.tsunami_colormap
-    plotitem.pcolor_cmin = -0.020
-    plotitem.pcolor_cmax = 0.020
+    plotitem.pcolor_cmin = -1.00
+    plotitem.pcolor_cmax = 1.00
     plotitem.add_colorbar = True
-    plotitem.amr_gridlines_show = [0,0,0]
+    plotitem.amr_gridlines_show = [1,0,0]
     plotitem.gridedges_show = 1
 
     # Land
@@ -77,10 +62,10 @@ def setplot(plotdata):
     plotitem.pcolor_cmin = 0.0
     plotitem.pcolor_cmax = 100.0
     plotitem.add_colorbar = False
-    plotitem.amr_gridlines_show = [0,0,0]
-    plotitem.gridedges_show = 0
-    plotaxes.xlimits = [0,20]
-    plotaxes.ylimits = [0,20]
+    plotitem.amr_gridlines_show = [1,0,0]
+    plotitem.gridedges_show = 1
+    plotaxes.xlimits = [-15,15]
+    plotaxes.ylimits = [-15,15]
 
     # Add contour lines of bathymetry:
     plotitem = plotaxes.new_plotitem(plot_type='2d_contour')
@@ -273,7 +258,7 @@ def setplot(plotdata):
     # Set up for axes in this figure:
     plotaxes = plotfigure.new_plotaxes()
     plotaxes.xlimits = 'auto'
-    plotaxes.ylimits = [-0.05, 0.09]
+    plotaxes.ylimits = [-2, 2]
     plotaxes.title = 'Surface'
 
     # Plot surface as blue curve:
@@ -300,13 +285,7 @@ def setplot(plotdata):
         plot(t, 0*t, 'k')
 
     plotaxes.afteraxes = add_zeroline
-    
-    def plot_labData(current_data):
-        import pylab
-        gaugeno = current_data.gaugeno
-        pylab.plot(gaugeTime,g1,'k')
-        gaugeTime
-#    plotaxes.afteraxes = plot_labData
+
 
     #-----------------------------------------
     # Figure for grids alone

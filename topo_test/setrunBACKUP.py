@@ -56,11 +56,11 @@ def setrun(claw_pkg='geoclaw'):
     clawdata.ndim = ndim
 
     # Lower and upper edge of computational domain:
-    clawdata.xlower = 0.
-    clawdata.xupper = 20.
+    clawdata.xlower = -15.
+    clawdata.xupper = 15.
 
-    clawdata.ylower = 0.
-    clawdata.yupper = 20.
+    clawdata.ylower = -13.
+    clawdata.yupper = 15.
 
 
     # Number of grid cells:
@@ -102,8 +102,8 @@ def setrun(claw_pkg='geoclaw'):
 
     if clawdata.outstyle==1:
         # Output nout frames at equally spaced times up to tfinal:
-        clawdata.nout = 1
-        clawdata.tfinal = 2.0
+        clawdata.nout = 2
+        clawdata.tfinal = 10.0
 
     elif clawdata.outstyle == 2:
         # Specify a list of output times.
@@ -113,7 +113,7 @@ def setrun(claw_pkg='geoclaw'):
     elif clawdata.outstyle == 3:
         # Output every iout timesteps with a total of ntot time steps:
         iout = 1
-        ntot = 1
+        ntot = 5
         clawdata.iout = [iout, ntot]
 
 
@@ -125,7 +125,7 @@ def setrun(claw_pkg='geoclaw'):
     # The current t, dt, and cfl will be printed every time step
     # at AMR levels <= verbosity.  Set verbosity = 0 for no printing.
     #   (E.g. verbosity == 2 means print only on levels 1 and 2.)
-    clawdata.verbosity = 3
+    clawdata.verbosity = 0
 
 
 
@@ -205,7 +205,7 @@ def setrun(claw_pkg='geoclaw'):
 
 
     # max number of refinement levels:
-    mxnest = 2
+    mxnest = 1
 
     clawdata.mxnest = -mxnest   # negative ==> anisotropic refinement in x,y,t
 
@@ -227,7 +227,7 @@ def setrun(claw_pkg='geoclaw'):
                             # (Not used in geoclaw!)
 
     clawdata.kcheck = 2     # how often to regrid (every kcheck steps)
-    clawdata.ibuff  = 3     # width of buffer zone around flagged points
+    clawdata.ibuff  = 2     # width of buffer zone around flagged points
 
     # More AMR parameters can be set -- see the defaults in pyclaw/data.py
 
@@ -287,7 +287,7 @@ def setgeo(rundata):
     geodata.regions = []
     # to specify regions of refinement append lines of the form
     #  [minlevel,maxlevel,t1,t2,x1,x2,y1,y2]
-#    geodata.regions.append([1, 2, 0.e0, 1.e10, -15.,15., -15.,15.])
+    geodata.regions.append([1, 2, 0.e0, 1.e10, -15.,15., -15.,15.])
 
     # == setgauges.data values ==
     geodata.gauges = []
@@ -297,50 +297,11 @@ def setgeo(rundata):
 
     # gauges along x-axis:
     gaugeno = 0
-    xcorrect = -13.80
-    ycorrect = -12.96
-    yFront = 6.9
-    #for r in linspace(0, 4., 4):
-    gaugeno = 1
-    x = 16.05  # shift a bit away from cell corners
-    y = yFront
-    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
-    
-    gaugeno = 2
-    x = 14.55  # shift a bit away from cell corners
-    y = yFront
-    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
-    
-    gaugeno = 3
-    x = 13.05  # shift a bit away from cell corners
-    y = yFront
-    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
-    
-    gaugeno = 4
-    x = 11.55  # shift a bit away from cell corners
-    y = yFront
-    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
-
-
-    gaugeno = 6
-    x = 13.80  # shift a bit away from cell corners
-    y = 9.36
-    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
-
-    gaugeno = 9
-    x = 13.80  # shift a bit away from cell corners
-    y = 10.36
-    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
-
-    gaugeno = 16
-    x = 16.40  # shift a bit away from cell corners
-    y = 12.96
-    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
-
-    gaugeno = 22
-    x = 13.80  # shift a bit away from cell corners
-    y = 15.56
-    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
+    #for r in linspace(-4., 4., 8):
+    gaugeno = gaugeno + 1
+    x = 2  # shift a bit away from cell corners
+    y = 3
+    geodata.gauges.append([gaugeno, x, y, 0., 1e10])
 
     # gauges along y-axis:
 #    for r in linspace(-4., 4., 8):
@@ -349,10 +310,7 @@ def setgeo(rundata):
 #        x = 1.e-6
 #        geodata.gauges.append([gaugeno, x, y, 0., 1e10])
 
-    gaugeno = 0
-    x = 13.80  # shift a bit away from cell corners
-    y = 0
-    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
+
 
     # == setfixedgrids.data values ==
     geodata.fixedgrids = []
@@ -362,6 +320,35 @@ def setgeo(rundata):
     #geodata.fixedgrids.append([1., 2., 4, 0., 100., 0., 100., 11, 11, 0, 0])
 
     return rundata
+
+    # gauges along x-axis:
+    #gaugeno = 0
+    #for r in linspace(-4., 4., 8):
+    #    gaugeno = gaugeno+1
+    #    x = r + 1.e-6  # shift a bit away from cell corners
+    #    y = 1.e-6
+    #    geodata.gauges.append([gaugeno, x, y, 0., 1e10])
+
+    # gauges along y-axis:
+   # for r in linspace(-4., 4., 8):
+   #     gaugeno = gaugeno+1
+   #     y = r + 1.e-6  # shift a bit away from cell corners
+   #     x = 1.e-6
+   #     geodata.gauges.append([gaugeno, x, y, 0., 1e10])
+    #gaugeno = gaugeno + 1
+    #x = 9.36
+    #y = 13.80
+    #geodata.gauges.append([gaugeno, x, y, 0., 1e10])
+
+
+    # == setfixedgrids.data values ==
+    #geodata.fixedgrids = []
+    # for fixed grids append lines of the form
+    # [t1,t2,noutput,x1,x2,y1,y2,xpoints,ypoints,\
+    #  ioutarrivaltimes,ioutsurfacemax]
+    #geodata.fixedgrids.append([1., 2., 4, 0., 100., 0., 100., 11, 11, 0, 0])
+
+    #return rundata
     # end of function setgeo
     # ----------------------
 

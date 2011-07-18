@@ -11,6 +11,9 @@ c
 c
 c    Specific to geoclaw:  extrapolates aux(i,j,1) at boundaries
 c    to constant.
+
+c    Modified for wave-maker motion at bottom boundary.
+
 c
 c :::::::::: bc2amr ::::::::::::::::::::::::::::::::::::::::::::::;
 c
@@ -82,7 +85,6 @@ c ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::;
 
       implicit double precision (a-h,o-z)
 
-      common /wave/ profile(451,2)
       common /combc2/ mthbc(4)
 
       dimension val(nrow,ncol,meqn), aux(nrow,ncol,naux)
@@ -110,97 +112,11 @@ c
       go to (100,110,120,130) mthbc(1)+1
 c
   100 continue
-c     # Specify a wave entering the domain given by profile stored
-c     # in common block:
-
-      t = time
-      if (t.ge.21.5d0) then
-c        # switch to nonreflecting BC after wave has entered:
-         go to 110
-      endif
-
-
-c     # values in ghost cell at x = -epsilon  should
-c     # be set to values at point x=0 at time t + epsilon / speed
-c     # where speed = sqrt(gh) is the wave speed.
-c     # Use undisturbed state h0 = 13.5 cm.
-
-      h0 = 0.135d0
-      grav = 9.81d0  !# should fix to use value in module!
-      speed = dsqrt(grav*h0)
-
-      t1 = t + 0.5d0*hx / speed  ! ghost cell adjecent to boundary
-      t2 = t + 1.5d0*hx / speed  ! next ghost cell away from boundary
-      
-c     # interpolate profile to find surface level eta at these times:
-      
-      do it=1,450
-         if (profile(it,1).le.t1.and.profile(it+1,1).gt.t1) then
-            etaslope1=(profile(it+1,2)-profile(it,2))/.05d0
-            eta1=profile(it,2)+ etaslope1*(t1-profile(it,1))
-            
-            do it2=it,450
-                if (profile(it2,1).le.t2.and.
-     &                    profile(it2+1,1).gt.t2) then
-                   etaslope2=(profile(it2+1,2)-profile(it2,2))/.05d0
-                   eta2=profile(it2,2)+ etaslope2*(t2-profile(it2,1))
-                
-                   go to 101
-                 endif
-               enddo
-               
-         endif
-      enddo 
-      write(*,*) 't2 is out of range',profile(it2,1),t2,profile(it2+1,1)
+c     # user-specified boundary conditions go here in place of error output
+      write(6,*) 
+     &   '*** ERROR *** mthbc(1)=0 and no BCs specified in bc2amr'
       stop
- 101  continue
-c     write(46,*) 't1 = ',t1,'   it  = ',it,'  eta1 = ',eta1
-c     write(46,*) '  profiles: ',profile(it,2),profile(it+1,2)
-c     write(46,*) '  etaslopes: ',etaslope1,etaslope2
-c     write(46,*) 't2 = ',t2,'   it2 = ',it2,'  eta1 = ',eta2
-      
- 
-
-c     # Riemann invariant for right-going wave:
-c     # u - 2*sqrt(gh) is constant with value rinvar given by undisturbed
-c     # state with depth h0 and zero velocity:
-      rinvar=-2.0d0*sqrt(grav*h0)
-
-      do 105 j=1,ncol
-c        # depth h = eta - B:
-         h1 = eta1 - aux(nxl+1,j,1)
-c        # velocity found using Riemann invariant: 
-c        #   u - 2*sqrt(gh) = rinvar:           
-         u1 = 2.d0*sqrt(grav*h1)+rinvar
-         
-         if (nxl == 1) then
-c            # only one ghost cell:
-             aux(1,j,1) = aux(nxl+1,j,1)  
-             val(1,j,1) = h1
-             val(1,j,2) = h1*u1
-             val(1,j,3) = 0.d0
-          else
-c            # two ghost cells:
-             aux(2,j,1) = aux(nxl+1,j,1)  
-             val(2,j,1) = h1
-             val(2,j,2) = h1*u1
-             val(2,j,3) = 0.d0
-             
-             h2 = eta2 - aux(nxl+1,j,1)     
-             u2 = 2.d0*sqrt(grav*h2)+rinvar
-             aux(1,j,1) = aux(nxl+1,j,1)              
-             val(1,j,1) = h2
-             val(1,j,2) = h2*u2
-             val(1,j,3) = 0.d0
-          endif
-
- 105    continue
-c     write(47,*) t1,val(1,2,1),val(1,2,2)
-c     write(48,*) t1,val(2,2,1),val(2,2,2)
-      
-      
       go to 199
-c
 c
   110 continue
 c     # zero-order extrapolation:
@@ -303,10 +219,25 @@ c
       go to (300,310,320,330) mthbc(3)+1
 c
   300 continue
-c     # user-specified boundary conditions go here in place of error output
-      write(6,*) 
-     &   '*** ERROR *** mthbc(3)=0 and no BCs specified in bc2amr'
-      stop
+c     # wave-maker: wall moves with speed s
+      smax = 0.025d0
+      beta = 1.0d0
+      t0 = 5.9
+      s = smax * 4/(dexp(-beta*(time - t0))+dexp(beta*(time - t0)))**2
+c     s = smax*dexp(-beta*(time-t0)**2)
+
+      if (dabs(s).lt.1.d-5) s = 0.d0
+      do 305 m=1,meqn
+         do 305 j=1,nyb
+            do 305 i=1,nrow
+                aux(i,j,1) =  aux(i,2*nyb+1-j,1) !inserted for bc2amr_noslope
+                val(i,j,m) =  val(i,2*nyb+1-j,m)
+  305       continue
+c     # negate the normal velocity:
+      do 306 j=1,nyb
+         do 306 i=1,nrow
+            val(i,j,3) = 2.d0 * s - val(i,j,3)
+  306    continue
       go to 399
 c
   310 continue
@@ -358,9 +289,22 @@ c
 c
   400 continue
 c     # user-specified boundary conditions go here in place of error output
-      write(6,*) 
-     &   '*** ERROR *** mthbc(4)=0 and no BCs specified in bc2amr'
-      stop
+c     # wave-maker: wall moves with speed s
+      smax = .083d0
+      t0 = 2.0d0
+#      s = -smax * 4/(dexp(-beta*(time - t0))-dexp(beta*(time - t0)))**2 #sech(x)^2
+      if (dabs(s).lt.1.d-5) s = 0.d0
+      do 405 m=1,meqn
+         do 405 j=jbeg,ncol
+            do 405 i=1,nrow
+               aux(i,j,1) =  aux(i,2*jbeg-1-j,1)  !inserted for bc2amr_noslope
+               val(i,j,m) =  val(i,2*jbeg-1-j,m)
+  405       continue
+c     # motion of the wall:
+      do 406 j=jbeg,ncol
+         do 406 i=1,nrow
+            val(i,j,3) = 2.d0*s*val(i,j,1)-val(i,j,3)
+  406    continue
       go to 499
 
   410 continue
