@@ -10,12 +10,12 @@ def maketopo():
     """
     Output topography file for the entire domain
     """
-    nxpoints=300
-    nypoints=300
-    xupper=15.e0
-    yupper=15.e0
-    xll = -15.e0
-    yll = -15.e0
+    nxpoints=1000
+    nypoints=850
+    xupper=999.e0
+    yupper=849.e0
+    xll = 0.e0
+    yll = 0.e0
     #outfile= "island.topotype1"
     #topo1writer(outfile,topo,xll,xupper,yll,yupper,nxpoints,nypoints)
     outfile= "island.topotype2"
@@ -25,8 +25,8 @@ def makeqinit():
     """
     Create qinit data file
     """
-    nxpoints=100
-    nypoints=100
+    nxpoints=1000
+    nypoints=850
     xupper=10.e0
     yupper=10.e0
     xll = -10.e0
@@ -36,14 +36,12 @@ def makeqinit():
 
 def topo(x,y):
     """
-    Conical island
+    Topography/Bathymetry provided by infile
     """
-    # Depth of water: 0.32 or 0.42 meters for benchmarks.
-    depth = 0.32   #According to USACE benchmark site
-    r = sqrt(x**2 + y**2) 
-    z = where(r < 1.1, 0.625, 0.625 - 0.25*(r-1.1))
-    z = where(r < 3.6, z, 0.)
-    z = z - depth
+    from numpy import *
+    infile = '../1_arc_sec_MHW/CCtopo/ca_north36secm.asc'
+    z = loadtxt(infile, skiprows=6, unpack=True)
+    z = z - 10.0
     return z
 
 

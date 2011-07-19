@@ -61,7 +61,7 @@ def setplot(plotdata):
 
     # Water
     plotitem = plotaxes.new_plotitem(plot_type='2d_pcolor')
-    #plotitem.plot_var = geoplot.surface
+    plotitem.plot_var = geoplot.surface
     plotitem.plot_var = geoplot.surface_or_depth
     plotitem.pcolor_cmap = geoplot.tsunami_colormap
     plotitem.pcolor_cmin = -0.020
@@ -76,11 +76,11 @@ def setplot(plotdata):
     plotitem.pcolor_cmap = geoplot.land_colors
     plotitem.pcolor_cmin = 0.0
     plotitem.pcolor_cmax = 100.0
-    plotitem.add_colorbar = False
+    plotitem.add_colorbar = True
     plotitem.amr_gridlines_show = [0,0,0]
     plotitem.gridedges_show = 0
-    plotaxes.xlimits = [0,20]
-    plotaxes.ylimits = [0,20]
+    plotaxes.xlimits = [0,1000]
+    plotaxes.ylimits = [600,850]
 
     # Add contour lines of bathymetry:
     plotitem = plotaxes.new_plotitem(plot_type='2d_contour')
