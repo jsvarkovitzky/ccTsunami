@@ -38,10 +38,10 @@ def topo(x,y):
     """
     Topography/Bathymetry provided by infile
     """
-    from numpy import *
+    #from numpy import *
     infile = '../1_arc_sec_MHW/CCtopo/ca_north36secm.asc'
     z = loadtxt(infile, skiprows=6, unpack=True)
-    z = z - 10.0
+    z = -z
     return z
 
 
