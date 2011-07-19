@@ -57,10 +57,10 @@ def setrun(claw_pkg='geoclaw'):
 
     # Lower and upper edge of computational domain:
     clawdata.xlower = 0.
-    clawdata.xupper = 1000.
+    clawdata.xupper = 1801.
 
     clawdata.ylower = 0.
-    clawdata.yupper = 850.
+    clawdata.yupper = 601.
 
 
     # Number of grid cells:
@@ -301,46 +301,46 @@ def setgeo(rundata):
     ycorrect = -12.96
     yFront = 6.9
     #for r in linspace(0, 4., 4):
-    gaugeno = 1
-    x = 16.05  # shift a bit away from cell corners
-    y = yFront
-    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
+#    gaugeno = 1
+#    x = 16.05  # shift a bit away from cell corners
+#    y = yFront
+#    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
     
-    gaugeno = 2
-    x = 14.55  # shift a bit away from cell corners
-    y = yFront
-    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
+#    gaugeno = 2
+#    x = 14.55  # shift a bit away from cell corners
+#    y = yFront
+#    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
     
-    gaugeno = 3
-    x = 13.05  # shift a bit away from cell corners
-    y = yFront
-    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
+#    gaugeno = 3
+#    x = 13.05  # shift a bit away from cell corners
+#    y = yFront
+#    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
     
-    gaugeno = 4
-    x = 11.55  # shift a bit away from cell corners
-    y = yFront
-    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
+#    gaugeno = 4
+#    x = 11.55  # shift a bit away from cell corners
+#    y = yFront
+#    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
 
 
-    gaugeno = 6
-    x = 13.80  # shift a bit away from cell corners
-    y = 9.36
-    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
+#    gaugeno = 6
+#    x = 13.80  # shift a bit away from cell corners
+#    y = 9.36
+#    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
 
-    gaugeno = 9
-    x = 13.80  # shift a bit away from cell corners
-    y = 10.36
-    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
+#    gaugeno = 9
+#    x = 13.80  # shift a bit away from cell corners
+#    y = 10.36
+#    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
 
-    gaugeno = 16
-    x = 16.40  # shift a bit away from cell corners
-    y = 12.96
-    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
+#    gaugeno = 16
+#    x = 16.40  # shift a bit away from cell corners
+#    y = 12.96
+#    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
 
-    gaugeno = 22
-    x = 13.80  # shift a bit away from cell corners
-    y = 15.56
-    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
+#    gaugeno = 22
+#    x = 13.80  # shift a bit away from cell corners
+#    y = 15.56
+#    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
 
     # gauges along y-axis:
 #    for r in linspace(-4., 4., 8):
@@ -349,10 +349,10 @@ def setgeo(rundata):
 #        x = 1.e-6
 #        geodata.gauges.append([gaugeno, x, y, 0., 1e10])
 
-    gaugeno = 0
-    x = 13.80  # shift a bit away from cell corners
-    y = 0
-    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
+#    gaugeno = 0
+#    x = 13.80  # shift a bit away from cell corners
+#    y = 0
+#    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
 
     # == setfixedgrids.data values ==
     geodata.fixedgrids = []

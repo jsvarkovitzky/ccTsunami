@@ -79,8 +79,8 @@ def setplot(plotdata):
     plotitem.add_colorbar = True
     plotitem.amr_gridlines_show = [0,0,0]
     plotitem.gridedges_show = 0
-    plotaxes.xlimits = [0,1000]
-    plotaxes.ylimits = [600,850]
+    plotaxes.xlimits = [0,1801]
+    plotaxes.ylimits = [0,601]
 
     # Add contour lines of bathymetry:
     plotitem = plotaxes.new_plotitem(plot_type='2d_contour')

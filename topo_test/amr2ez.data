@@ -38,9 +38,9 @@
 
 0.0                       =: t0           (initial time)
 0.0                       =: xlower       (xlower)
-1000.0                    =: xupper       (xupper)
+1801.0                    =: xupper       (xupper)
 0.0                       =: ylower       (ylower)
-850.0                     =: yupper       (yupper)
+601.0                     =: yupper       (yupper)
 
 2                         =: mbc          (number of ghost cells)
 3                         =: mthbc_xlower (type of BC at xlower)

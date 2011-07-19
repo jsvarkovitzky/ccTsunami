@@ -10,10 +10,10 @@ def maketopo():
     """
     Output topography file for the entire domain
     """
-    nxpoints=1000
-    nypoints=850
-    xupper=999.e0
-    yupper=849.e0
+    nxpoints=1801
+    nypoints=601
+    xupper=1800.e0
+    yupper=600.e0
     xll = 0.e0
     yll = 0.e0
     #outfile= "island.topotype1"
@@ -25,8 +25,8 @@ def makeqinit():
     """
     Create qinit data file
     """
-    nxpoints=1000
-    nypoints=850
+    nxpoints=1801
+    nypoints=601
     xupper=10.e0
     yupper=10.e0
     xll = -10.e0
@@ -39,7 +39,7 @@ def topo(x,y):
     Topography/Bathymetry provided by infile
     """
     #from numpy import *
-    infile = '../1_arc_sec_MHW/CCtopo/ca_north36secm.asc'
+    infile = '../1_arc_sec_MHW/CCtopo/CC-B6s04-5853.asc'
     z = loadtxt(infile, skiprows=6, unpack=True)
     z = -z
     return z
