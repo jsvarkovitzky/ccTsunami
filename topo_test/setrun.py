@@ -102,8 +102,8 @@ def setrun(claw_pkg='geoclaw'):
 
     if clawdata.outstyle==1:
         # Output nout frames at equally spaced times up to tfinal:
-        clawdata.nout = 1
-        clawdata.tfinal = 2.0
+        clawdata.nout = 40
+        clawdata.tfinal = 40.0
 
     elif clawdata.outstyle == 2:
         # Specify a list of output times.
@@ -296,25 +296,25 @@ def setgeo(rundata):
     from numpy import linspace
 
     # gauges along x-axis:
-    gaugeno = 0
-    xcorrect = -13.80
-    ycorrect = -12.96
-    yFront = 6.9
+#    gaugeno = 0
+#    xcorrect = -13.80
+#    ycorrect = -12.96
+#    yFront = 6.9
     #for r in linspace(0, 4., 4):
-#    gaugeno = 1
-#    x = 16.05  # shift a bit away from cell corners
-#    y = yFront
-#    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
+    gaugeno = 1
+    x = 900  
+    y = 300
+    geodata.gauges.append([gaugeno, x, y, 0., 1e10])
     
-#    gaugeno = 2
-#    x = 14.55  # shift a bit away from cell corners
-#    y = yFront
-#    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
+    gaugeno = 2
+    x = 900  
+    y = 525
+    geodata.gauges.append([gaugeno, x, y, 0., 1e10])
     
-#    gaugeno = 3
-#    x = 13.05  # shift a bit away from cell corners
-#    y = yFront
-#    geodata.gauges.append([gaugeno, x+xcorrect, y+ycorrect, 0., 1e10])
+    gaugeno = 3
+    x = 900  
+    y = 537
+    geodata.gauges.append([gaugeno, x, y, 0., 1e10])
     
 #    gaugeno = 4
 #    x = 11.55  # shift a bit away from cell corners

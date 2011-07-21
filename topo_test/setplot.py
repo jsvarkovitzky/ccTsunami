@@ -64,8 +64,8 @@ def setplot(plotdata):
     plotitem.plot_var = geoplot.surface
     plotitem.plot_var = geoplot.surface_or_depth
     plotitem.pcolor_cmap = geoplot.tsunami_colormap
-    plotitem.pcolor_cmin = -0.020
-    plotitem.pcolor_cmax = 0.020
+    plotitem.pcolor_cmin = -8.0
+    plotitem.pcolor_cmax = 8.0
     plotitem.add_colorbar = True
     plotitem.amr_gridlines_show = [0,0,0]
     plotitem.gridedges_show = 1
@@ -75,12 +75,14 @@ def setplot(plotdata):
     plotitem.plot_var = geoplot.land
     plotitem.pcolor_cmap = geoplot.land_colors
     plotitem.pcolor_cmin = 0.0
-    plotitem.pcolor_cmax = 100.0
+    plotitem.pcolor_cmax = 1500.0 #this one
     plotitem.add_colorbar = True
     plotitem.amr_gridlines_show = [0,0,0]
     plotitem.gridedges_show = 0
     plotaxes.xlimits = [0,1801]
     plotaxes.ylimits = [0,601]
+#    plotaxes.xlimits = [850,950]
+#    plotaxes.ylimits = [500,600]
 
     # Add contour lines of bathymetry:
     plotitem = plotaxes.new_plotitem(plot_type='2d_contour')
@@ -150,7 +152,7 @@ def setplot(plotdata):
     plotitem.plot_var = geoplot.land
     plotitem.pcolor_cmap = geoplot.land_colors
     plotitem.pcolor_cmin = 0.0
-    plotitem.pcolor_cmax = 100.0
+    plotitem.pcolor_cmax = 1000.0
     plotitem.add_colorbar = False
     plotitem.amr_gridlines_show = [1,0,0]
 
@@ -221,7 +223,7 @@ def setplot(plotdata):
     plotitem.plot_var = geoplot.land
     plotitem.pcolor_cmap = geoplot.land_colors
     plotitem.pcolor_cmin = 0.0
-    plotitem.pcolor_cmax = 100.0
+    plotitem.pcolor_cmax = 3000.0
     plotitem.add_colorbar = False
     plotitem.amr_gridlines_show = [1,1,0]
 
@@ -273,7 +275,7 @@ def setplot(plotdata):
     # Set up for axes in this figure:
     plotaxes = plotfigure.new_plotaxes()
     plotaxes.xlimits = 'auto'
-    plotaxes.ylimits = [-0.05, 0.09]
+    plotaxes.ylimits = [-1, 1]
     plotaxes.title = 'Surface'
 
     # Plot surface as blue curve:
