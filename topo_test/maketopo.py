@@ -25,7 +25,7 @@ def maketopo():
     
     #outfile= "island.topotype1"
     #topo1writer(outfile,topo,xll,xupper,yll,yupper,nxpoints,nypoints)
-    outfile= "island.topotype2"
+    outfile= "coast.topotype2"
     topo2writer(outfile,topo,xll,xupper,yll,yupper,nxpoints,nypoints)
 
 def makeqinit():

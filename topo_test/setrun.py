@@ -102,8 +102,8 @@ def setrun(claw_pkg='geoclaw'):
 
     if clawdata.outstyle==1:
         # Output nout frames at equally spaced times up to tfinal:
-        clawdata.nout = 40
-        clawdata.tfinal = 40.0
+        clawdata.nout = 2
+        clawdata.tfinal = 2.0
 
     elif clawdata.outstyle == 2:
         # Specify a list of output times.
@@ -269,7 +269,7 @@ def setgeo(rundata):
     geodata.topofiles = []
     # for topography, append lines of the form
     #   [topotype, minlevel, maxlevel, t1, t2, fname]
-    geodata.topofiles.append([2, 1, 1, 0., 1.e10, 'island.topotype2'])
+    geodata.topofiles.append([2, 1, 1, 0., 1.e10, 'coast.topotype2'])
 
     # == setdtopo.data values ==
     geodata.dtopofiles = []
