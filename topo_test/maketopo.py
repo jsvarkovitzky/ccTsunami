@@ -1,4 +1,3 @@
-
 """
 Module to create topo and qinit data files for this example.
 """
@@ -12,10 +11,18 @@ def maketopo():
     """
     nxpoints=1801
     nypoints=601
-    xupper=1800.e0
-    yupper=600.e0
-    xll = 0.e0
-    yll = 0.e0
+    xupper=1800
+    yupper=600
+    xll = 0
+    yll = 0
+
+    #nxpoints=1370
+    #nypoints=1110
+    #xupper=-123.88
+    #yupper=42.53
+    #xll = -125.25
+    #yll = 41.42
+    
     #outfile= "island.topotype1"
     #topo1writer(outfile,topo,xll,xupper,yll,yupper,nxpoints,nypoints)
     outfile= "island.topotype2"
@@ -51,9 +58,9 @@ def qinit(x,y):
     (Used as initial test problem)
     """
     hjump = 0.3
-    z = where((x > -9.) & (x < -7.), hjump, 0.)
+    z = where((y > 0) & (x < 20.), hjump, 0.)
     return z
 
 if __name__=='__main__':
     maketopo()
-    #makeqinit()
+#    makeqinit()
