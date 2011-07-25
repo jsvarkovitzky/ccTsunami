@@ -6,14 +6,14 @@
 
 200                       =: mx           (cells in x direction)
 200                       =: my           (cells in y direction)
--2                        =: mxnest       (max number of grid levels)
+-1                        =: mxnest       (max number of grid levels)
 2 4                       =: inratx       (refinement ratios)
 2 4                       =: inraty       (refinement ratios)
 2 4                       =: inratt       (refinement ratios)
 
-2                         =: nout         (number of output times)
+10                        =: nout         (number of output times)
 1                         =: outstyle     (style of specifying output times)
-2.0                       =: tfinal       (final time)
+0.10000000000000001       =: tfinal       (final time)
 
 0.016                     =: dt_initial   (initial time step dt)
 9.9999999999999997e+98    =: dt_max       (max allowable dt)
@@ -24,7 +24,7 @@
 1                         =: dt_variable  (1 for variable dt, 0 for fixed)
 2                         =: order        (1 or 2)
 2                         =: order_trans  (transverse order)
-3                         =: verbosity    (verbosity of output)
+1                         =: verbosity    (verbosity of output)
 1                         =: src_split    (source term splitting)
 0                         =: mcapa        (aux index for capacity fcn)
 3                         =: maux         (number of aux variables)
@@ -37,10 +37,10 @@
 3 3 3                     =: mthlim       (limiter choice for each wave)
 
 0.0                       =: t0           (initial time)
-0.0                       =: xlower       (xlower)
-1801.0                    =: xupper       (xupper)
-0.0                       =: ylower       (ylower)
-601.0                     =: yupper       (yupper)
+-125.25                   =: xlower       (xlower)
+-123.88                   =: xupper       (xupper)
+41.420000000000002        =: ylower       (ylower)
+43.530000000000001        =: yupper       (yupper)
 
 2                         =: mbc          (number of ghost cells)
 3                         =: mthbc_xlower (type of BC at xlower)

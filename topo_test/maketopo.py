@@ -1,66 +1,58 @@
-"""
-Module to create topo and qinit data files for this example.
-"""
 
-from pyclaw.geotools.topotools import topo1writer, topo2writer
-from numpy import *
+"""
+Download the Monai Valley model bathymetry and massage the data to
+produce a topo file with topotype=2 for use in GeoClaw.
+
+Note:
+The data file has a first row that must be skipped and the data in the wrong
+order for standard GeoClaw input styles described at
+begin_html
+[http://www.clawpack.org/users/topo.html]
+end_html
+
+"""
+import os, numpy
+from pyclaw.geotools import topotools
+import urllib
 
 def maketopo():
-    """
-    Output topography file for the entire domain
-    """
-    nxpoints=1801
-    nypoints=601
-    xupper=1800
-    yupper=600
-    xll = 0
-    yll = 0
-
-    #nxpoints=1370
-    #nypoints=1110
-    #xupper=-123.88
-    #yupper=42.53
-    #xll = -125.25
-    #yll = 41.42
-    
-    #outfile= "island.topotype1"
-    #topo1writer(outfile,topo,xll,xupper,yll,yupper,nxpoints,nypoints)
-    outfile= "coast.topotype2"
-    topo2writer(outfile,topo,xll,xupper,yll,yupper,nxpoints,nypoints)
-
-def makeqinit():
-    """
-    Create qinit data file
-    """
-    nxpoints=1801*4
-    nypoints=601*4
-    xupper=10.e0
-    yupper=10.e0
-    xll = -10.e0
-    yll = -10.e0
-    outfile= "wave.xyz"
-    topo1writer(outfile,qinit,xll,xupper,yll,yupper,nxpoints,nypoints)
-
-def topo(x,y):
-    """
-    Topography/Bathymetry provided by infile
-    """
-    #from numpy import *
     infile = '../1_arc_sec_MHW/CCtopo/CC-B6s04-5853.asc'
-    z = loadtxt(infile, skiprows=6, unpack=True)
-    z = -z
-    return z
+        
+    print "Fixing topo file"
+    z = numpy.loadtxt(infile, skiprows=6, unpack=True)
+    Z = -z #negate data for clawpack formating 
+
+    # create output file:
+    outfile = 'coast.tt2'
+    xlower = -125.25
+    xupper = -123.88
+    ylower = 41.42
+    yupper = 42.53
+    mx = 601
+    my = 1801
+    dx = (xupper - xlower) / mx
+    dy = (yupper - ylower) / my
+    if abs(dx-dy) > 1e-6:
+        print "*** dx and dy are not equal!"
+        print "*** dx = %s,  dy = %s" %(dx,dy)
+    cellsize = dx
+    
+    ofile = open(outfile, 'w')
+    ofile.write('%s ncols\n' % mx)
+    ofile.write('%s nrows\n' % my)
+    ofile.write('%s xll\n' % xlower)
+    ofile.write('%s yll\n' % ylower)
+    ofile.write('%s cellsize\n' % cellsize)
+    ofile.write('9999 nodata_value\n')
+
+    for jj in range(my):
+        j = my-1-jj
+        for i in range(mx):
+            ofile.write('%20.12e\n' % Z[i,j])
+
+    ofile.close()
+    print "Created ",outfile
 
 
-def qinit(x,y):
-    """
-    Wave approaching from left.
-    (Used as initial test problem)
-    """
-    hjump = 0.3
-    z = where((y > 0) & (x < 20.), hjump, 0.)
-    return z
-
-if __name__=='__main__':
+if __name__=="__main__":
     maketopo()
-#    makeqinit()

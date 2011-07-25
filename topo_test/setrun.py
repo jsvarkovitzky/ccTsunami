@@ -56,11 +56,11 @@ def setrun(claw_pkg='geoclaw'):
     clawdata.ndim = ndim
 
     # Lower and upper edge of computational domain:
-    clawdata.xlower = 0.
-    clawdata.xupper = 1801.
+    clawdata.xlower = -125.25
+    clawdata.xupper = -123.88
 
-    clawdata.ylower = 0.
-    clawdata.yupper = 601.
+    clawdata.ylower = 41.42
+    clawdata.yupper = 43.53
 
 
     # Number of grid cells:
@@ -102,8 +102,8 @@ def setrun(claw_pkg='geoclaw'):
 
     if clawdata.outstyle==1:
         # Output nout frames at equally spaced times up to tfinal:
-        clawdata.nout = 2
-        clawdata.tfinal = 2.0
+        clawdata.nout = 10
+        clawdata.tfinal = 0.1
 
     elif clawdata.outstyle == 2:
         # Specify a list of output times.
@@ -125,7 +125,7 @@ def setrun(claw_pkg='geoclaw'):
     # The current t, dt, and cfl will be printed every time step
     # at AMR levels <= verbosity.  Set verbosity = 0 for no printing.
     #   (E.g. verbosity == 2 means print only on levels 1 and 2.)
-    clawdata.verbosity = 3
+    clawdata.verbosity = 1
 
 
 
@@ -205,7 +205,7 @@ def setrun(claw_pkg='geoclaw'):
 
 
     # max number of refinement levels:
-    mxnest = 2
+    mxnest = 1
 
     clawdata.mxnest = -mxnest   # negative ==> anisotropic refinement in x,y,t
 
@@ -269,7 +269,7 @@ def setgeo(rundata):
     geodata.topofiles = []
     # for topography, append lines of the form
     #   [topotype, minlevel, maxlevel, t1, t2, fname]
-    geodata.topofiles.append([2, 1, 1, 0., 1.e10, 'coast.topotype2'])
+    geodata.topofiles.append([2, 1, 1, 0., 1.e10, 'coast.tt2'])
 
     # == setdtopo.data values ==
     geodata.dtopofiles = []
@@ -302,18 +302,18 @@ def setgeo(rundata):
 #    yFront = 6.9
     #for r in linspace(0, 4., 4):
     gaugeno = 1
-    x = 900  
-    y = 300
+    x = 124.565
+    y = 42.0
     geodata.gauges.append([gaugeno, x, y, 0., 1e10])
     
     gaugeno = 2
-    x = 900  
-    y = 525
+    x = 124.565  
+    y = 42.25
     geodata.gauges.append([gaugeno, x, y, 0., 1e10])
     
     gaugeno = 3
-    x = 900  
-    y = 537
+    x = 124.565  
+    y = 42.4
     geodata.gauges.append([gaugeno, x, y, 0., 1e10])
     
 #    gaugeno = 4

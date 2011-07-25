@@ -79,8 +79,8 @@ def setplot(plotdata):
     plotitem.add_colorbar = True
     plotitem.amr_gridlines_show = [0,0,0]
     plotitem.gridedges_show = 0
-    plotaxes.xlimits = [0,1801]
-    plotaxes.ylimits = [0,601]
+    plotaxes.xlimits = [-125.25,-123.88]
+    plotaxes.ylimits = [41.42,42.53]
 #    plotaxes.xlimits = [850,950]
 #    plotaxes.ylimits = [500,600]
 
