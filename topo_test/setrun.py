@@ -55,14 +55,19 @@ def setrun(claw_pkg='geoclaw'):
     # Number of space dimensions:
     clawdata.ndim = ndim
 
-    # Lower and upper edge of computational domain:
+    #Computational Domain in Lat-Long
     clawdata.xlower = -125.25
     clawdata.xupper = -123.88
 
     clawdata.ylower = 41.42
     clawdata.yupper = 43.53
 
+    #Computaitonal Domain, Arbitrary 
+    #clawdata.xlower = 0
+    #clawdata.xupper = 1801
 
+    #clawdata.ylower = 0
+    #clawdata.yupper = 601
     # Number of grid cells:
     clawdata.mx = 200
     clawdata.my = 200
@@ -103,7 +108,7 @@ def setrun(claw_pkg='geoclaw'):
     if clawdata.outstyle==1:
         # Output nout frames at equally spaced times up to tfinal:
         clawdata.nout = 10
-        clawdata.tfinal = 0.1
+        clawdata.tfinal = 10.0
 
     elif clawdata.outstyle == 2:
         # Specify a list of output times.
@@ -150,7 +155,7 @@ def setrun(claw_pkg='geoclaw'):
     clawdata.cfl_max = 1.0
 
     # Maximum number of time steps to allow between output times:
-    clawdata.max_steps = 5000
+    clawdata.max_steps = 500000
 
 
 
@@ -205,7 +210,7 @@ def setrun(claw_pkg='geoclaw'):
 
 
     # max number of refinement levels:
-    mxnest = 1
+    mxnest = 2
 
     clawdata.mxnest = -mxnest   # negative ==> anisotropic refinement in x,y,t
 

@@ -220,9 +220,9 @@ c
 c
   300 continue
 c     # wave-maker: wall moves with speed s
-      smax = 250.d0
+      smax = .0250d0
       beta = 1.0d0
-      t0 = 5.9
+      t0 = 0
       s = smax * 4/(dexp(-beta*(time - t0))+dexp(beta*(time - t0)))**2
 c     s = smax*dexp(-beta*(time-t0)**2)
 

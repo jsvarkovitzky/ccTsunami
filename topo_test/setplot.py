@@ -75,14 +75,16 @@ def setplot(plotdata):
     plotitem.plot_var = geoplot.land
     plotitem.pcolor_cmap = geoplot.land_colors
     plotitem.pcolor_cmin = 0.0
-    plotitem.pcolor_cmax = 1500.0 #this one
+    plotitem.pcolor_cmax = 1500.0 #This changes the topo colors
     plotitem.add_colorbar = True
     plotitem.amr_gridlines_show = [0,0,0]
     plotitem.gridedges_show = 0
+    #Domain for Geoclaw
     plotaxes.xlimits = [-125.25,-123.88]
     plotaxes.ylimits = [41.42,42.53]
-#    plotaxes.xlimits = [850,950]
-#    plotaxes.ylimits = [500,600]
+    #Domain, arbitrary
+    #plotaxes.xlimits = [0,1801]
+    #plotaxes.ylimits = [0,601]
 
     # Add contour lines of bathymetry:
     plotitem = plotaxes.new_plotitem(plot_type='2d_contour')

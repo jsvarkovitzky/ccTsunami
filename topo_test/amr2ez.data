@@ -6,20 +6,20 @@
 
 200                       =: mx           (cells in x direction)
 200                       =: my           (cells in y direction)
--1                        =: mxnest       (max number of grid levels)
+-2                        =: mxnest       (max number of grid levels)
 2 4                       =: inratx       (refinement ratios)
 2 4                       =: inraty       (refinement ratios)
 2 4                       =: inratt       (refinement ratios)
 
 10                        =: nout         (number of output times)
 1                         =: outstyle     (style of specifying output times)
-0.10000000000000001       =: tfinal       (final time)
+10.0                      =: tfinal       (final time)
 
 0.016                     =: dt_initial   (initial time step dt)
 9.9999999999999997e+98    =: dt_max       (max allowable dt)
 1.0                       =: cfl_max      (max allowable Courant number)
 0.75                      =: cfl_desired  (desired Courant number)
-5000                      =: max_steps    (max time steps per call to claw)
+500000                    =: max_steps    (max time steps per call to claw)
 
 1                         =: dt_variable  (1 for variable dt, 0 for fixed)
 2                         =: order        (1 or 2)
