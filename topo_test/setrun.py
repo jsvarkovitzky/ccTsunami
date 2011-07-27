@@ -55,19 +55,21 @@ def setrun(claw_pkg='geoclaw'):
     # Number of space dimensions:
     clawdata.ndim = ndim
 
+    domain = 1
+    if domain == 1:
     #Computational Domain in Lat-Long
-    clawdata.xlower = -125.25
-    clawdata.xupper = -123.88
+       clawdata.xlower = -125.25
+       clawdata.xupper = -123.88
 
-    clawdata.ylower = 41.42
-    clawdata.yupper = 43.53
-
+       clawdata.ylower = 41.42
+       clawdata.yupper = 43.53
+    else:
     #Computaitonal Domain, Arbitrary 
-    #clawdata.xlower = 0
-    #clawdata.xupper = 1801
+       clawdata.xlower = 0
+       clawdata.xupper = 1801
 
-    #clawdata.ylower = 0
-    #clawdata.yupper = 601
+       clawdata.ylower = 0
+       clawdata.yupper = 601
     # Number of grid cells:
     clawdata.mx = 200
     clawdata.my = 200
@@ -107,8 +109,8 @@ def setrun(claw_pkg='geoclaw'):
 
     if clawdata.outstyle==1:
         # Output nout frames at equally spaced times up to tfinal:
-        clawdata.nout = 10
-        clawdata.tfinal = 10.0
+        clawdata.nout = 40
+        clawdata.tfinal = 40.0
 
     elif clawdata.outstyle == 2:
         # Specify a list of output times.
@@ -197,11 +199,11 @@ def setrun(claw_pkg='geoclaw'):
     #   2 => periodic (must specify this at both boundaries)
     #   3 => solid wall for systems where q(2) is normal velocity
 
-    clawdata.mthbc_xlower = 3
+    clawdata.mthbc_xlower = 0
     clawdata.mthbc_xupper = 3
 
-    clawdata.mthbc_ylower = 0
-    clawdata.mthbc_yupper = 1
+    clawdata.mthbc_ylower = 3
+    clawdata.mthbc_yupper = 3
 
 
     # ---------------

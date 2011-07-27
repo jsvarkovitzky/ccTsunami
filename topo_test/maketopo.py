@@ -20,7 +20,7 @@ def maketopo():
         
     print "Fixing topo file"
     z = numpy.loadtxt(infile, skiprows=6, unpack=True)
-    Z = -z #negate data for clawpack formating 
+    Z = -z*0.0001 #negate data for clawpack formating 
 
     # create output file:
     outfile = 'coast.tt2'

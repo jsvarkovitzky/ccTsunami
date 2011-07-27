@@ -112,12 +112,27 @@ c
       go to (100,110,120,130) mthbc(1)+1
 c
   100 continue
-c     # user-specified boundary conditions go here in place of error output
-      write(6,*) 
-     &   '*** ERROR *** mthbc(1)=0 and no BCs specified in bc2amr'
-      stop
+c     # wave-maker: wall moves with speed s
+      smax = 2.50d0
+      beta = 1.0d0
+      t0 = 0
+      s = smax * 4/(dexp(-beta*(time - t0))+dexp(beta*(time - t0)))**2
+c     s = smax*dexp(-beta*(time-t0)**2)
+
+      if (dabs(s).lt.1.d-5) s = 0.d0
+      do 105 m=1,meqn
+         do 105 i=1,nyb
+            do 105 j=1,nrow
+                aux(i,j,1) =  aux(i,2*nyb+1-j,1) !inserted for bc2amr_noslope
+                val(i,j,m) =  val(i,2*nyb+1-j,m)
+  105       continue
+c     # negate the normal velocity:
+      do 106 j=1,nyb
+         do 106 i=1,nrow
+            val(i,j,3) = 2.d0 * s - val(i,j,3)
+  106    continue
       go to 199
-c
+
   110 continue
 c     # zero-order extrapolation:
       do 115 m=1,meqn
@@ -220,7 +235,7 @@ c
 c
   300 continue
 c     # wave-maker: wall moves with speed s
-      smax = .0250d0
+      smax = .00250d0
       beta = 1.0d0
       t0 = 0
       s = smax * 4/(dexp(-beta*(time - t0))+dexp(beta*(time - t0)))**2
