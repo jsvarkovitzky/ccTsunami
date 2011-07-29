@@ -87,7 +87,7 @@ c ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::;
 
       common /combc2/ mthbc(4)
 
-      dimension val(nrow,ncol,meqn), aux(nrow,ncol,naux)
+      dimension val(nrow,ncol,meqn), aux(ncol,nrow,naux)
       logical xperiodic, yperiodic, spheredom
 
       hxmarg = hx*.01

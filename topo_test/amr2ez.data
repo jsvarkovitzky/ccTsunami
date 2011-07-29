@@ -11,7 +11,7 @@
 2 4                       =: inraty       (refinement ratios)
 2 4                       =: inratt       (refinement ratios)
 
-10                        =: nout         (number of output times)
+20                        =: nout         (number of output times)
 1                         =: outstyle     (style of specifying output times)
 10.0                      =: tfinal       (final time)
 
@@ -43,9 +43,9 @@
 43.530000000000001        =: yupper       (yupper)
 
 2                         =: mbc          (number of ghost cells)
-0                         =: mthbc_xlower (type of BC at xlower)
+3                         =: mthbc_xlower (type of BC at xlower)
 3                         =: mthbc_xupper (type of BC at xupper)
-3                         =: mthbc_ylower (type of BC at ylower)
+0                         =: mthbc_ylower (type of BC at ylower)
 3                         =: mthbc_yupper (type of BC at yupper)
 
 F                         =: restart      (1 to restart from a past run)
