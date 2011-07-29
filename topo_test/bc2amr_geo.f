@@ -113,7 +113,7 @@ c
 c
   100 continue
 c     # wave-maker: wall moves with speed s
-      smax = 2.50d0
+      smax = 0.00250d0
       beta = 1.0d0
       t0 = 0
       s = smax * 4/(dexp(-beta*(time - t0))+dexp(beta*(time - t0)))**2
@@ -121,14 +121,14 @@ c     s = smax*dexp(-beta*(time-t0)**2)
 
       if (dabs(s).lt.1.d-5) s = 0.d0
       do 105 m=1,meqn
-         do 105 i=1,nyb
-            do 105 j=1,nrow
+         do 105 i=1,nxl
+            do 105 j=1,ncol
                 aux(i,j,1) =  aux(i,2*nyb+1-j,1) !inserted for bc2amr_noslope
                 val(i,j,m) =  val(i,2*nyb+1-j,m)
   105       continue
 c     # negate the normal velocity:
-      do 106 j=1,nyb
-         do 106 i=1,nrow
+      do 106 j=1,nxl
+         do 106 i=1,ncol
             val(i,j,3) = 2.d0 * s - val(i,j,3)
   106    continue
       go to 199
