@@ -10,5 +10,5 @@
 100.0                     =: depthdeep    
 3                         =: maxleveldeep 
 1                         =: ifriction    
-0.025000000000000001      =: coeffmanning 
+0.025                     =: coeffmanning 
 1000000.0                 =: frictiondepth 

@@ -135,7 +135,6 @@ def setrun(claw_pkg='geoclaw'):
     clawdata.verbosity = 1
 
 
-
     # --------------
     # Time stepping:
     # --------------
