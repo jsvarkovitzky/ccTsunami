@@ -110,7 +110,7 @@ def setrun(claw_pkg='geoclaw'):
     if clawdata.outstyle==1:
         # Output nout frames at equally spaced times up to tfinal:
         clawdata.nout = 40
-        clawdata.tfinal = 10.0
+        clawdata.tfinal = 4.0
 
     elif clawdata.outstyle == 2:
         # Specify a list of output times.
@@ -198,7 +198,7 @@ def setrun(claw_pkg='geoclaw'):
     #   2 => periodic (must specify this at both boundaries)
     #   3 => solid wall for systems where q(2) is normal velocity
 
-    clawdata.mthbc_xlower = 3
+    clawdata.mthbc_xlower = 0
     clawdata.mthbc_xupper = 3
 
     clawdata.mthbc_ylower = 0
@@ -211,7 +211,7 @@ def setrun(claw_pkg='geoclaw'):
 
 
     # max number of refinement levels:
-    mxnest = 2
+    mxnest = 0
 
     clawdata.mxnest = -mxnest   # negative ==> anisotropic refinement in x,y,t
 
@@ -308,18 +308,18 @@ def setgeo(rundata):
 #    yFront = 6.9
     #for r in linspace(0, 4., 4):
     gaugeno = 1
-    x = 124.565
+    x = -124.565
     y = 42.0
     geodata.gauges.append([gaugeno, x, y, 0., 1e10])
     
     gaugeno = 2
-    x = 124.565  
-    y = 42.25
+    x = -124.565  
+    y = 42.0
     geodata.gauges.append([gaugeno, x, y, 0., 1e10])
     
     gaugeno = 3
-    x = 124.565  
-    y = 42.4
+    x = -124.565  
+    y = 42.0
     geodata.gauges.append([gaugeno, x, y, 0., 1e10])
     
 #    gaugeno = 4

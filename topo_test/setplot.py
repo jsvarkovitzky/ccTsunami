@@ -64,8 +64,8 @@ def setplot(plotdata):
     plotitem.plot_var = geoplot.surface
     plotitem.plot_var = geoplot.surface_or_depth
     plotitem.pcolor_cmap = geoplot.tsunami_colormap
-    plotitem.pcolor_cmin = -0.0050 #changes water coloring
-    plotitem.pcolor_cmax = 0.0050
+    plotitem.pcolor_cmin = -0.010 #changes water coloring
+    plotitem.pcolor_cmax = 0.010
     plotitem.add_colorbar = True
     plotitem.amr_gridlines_show = [0,0,0]
     plotitem.gridedges_show = 1

@@ -6,14 +6,12 @@
 
 200                       =: mx           (cells in x direction)
 200                       =: my           (cells in y direction)
--2                        =: mxnest       (max number of grid levels)
+0                         =: mxnest       (max number of grid levels)
 2 4                       =: inratx       (refinement ratios)
-2 4                       =: inraty       (refinement ratios)
-2 4                       =: inratt       (refinement ratios)
 
 40                        =: nout         (number of output times)
 1                         =: outstyle     (style of specifying output times)
-10.0                      =: tfinal       (final time)
+4.0                       =: tfinal       (final time)
 
 0.016                     =: dt_initial   (initial time step dt)
 1e+99                     =: dt_max       (max allowable dt)
@@ -24,7 +22,7 @@
 1                         =: dt_variable  (1 for variable dt, 0 for fixed)
 2                         =: order        (1 or 2)
 2                         =: order_trans  (transverse order)
-0                         =: verbosity    (verbosity of output)
+1                         =: verbosity    (verbosity of output)
 1                         =: src_split    (source term splitting)
 0                         =: mcapa        (aux index for capacity fcn)
 3                         =: maux         (number of aux variables)
@@ -43,7 +41,7 @@
 43.53                     =: yupper       (yupper)
 
 2                         =: mbc          (number of ghost cells)
-3                         =: mthbc_xlower (type of BC at xlower)
+0                         =: mthbc_xlower (type of BC at xlower)
 3                         =: mthbc_xupper (type of BC at xupper)
 0                         =: mthbc_ylower (type of BC at ylower)
 3                         =: mthbc_yupper (type of BC at yupper)
