@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/tsunami-benchmarks/!svn/ver/46/honshu/geoclaw/sendai-currents
+END
+test_vort.py
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/tsunami-benchmarks/!svn/ver/46/honshu/geoclaw/sendai-currents/test_vort.py
+END
+honshu-usgs.txt
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/tsunami-benchmarks/!svn/ver/45/honshu/geoclaw/sendai-currents/honshu-usgs.txt
+END
+setplot.py
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/tsunami-benchmarks/!svn/ver/46/honshu/geoclaw/sendai-currents/setplot.py
+END
+maketopo.py
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/tsunami-benchmarks/!svn/ver/45/honshu/geoclaw/sendai-currents/maketopo.py
+END
+setrun.py
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/tsunami-benchmarks/!svn/ver/46/honshu/geoclaw/sendai-currents/setrun.py
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/tsunami-benchmarks/!svn/ver/45/honshu/geoclaw/sendai-currents/README.txt
+END
+honshu-ucsb.txt
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/tsunami-benchmarks/!svn/ver/45/honshu/geoclaw/sendai-currents/honshu-ucsb.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/tsunami-benchmarks/!svn/ver/45/honshu/geoclaw/sendai-currents/Makefile
+END
+make_all.sh
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/tsunami-benchmarks/!svn/ver/45/honshu/geoclaw/sendai-currents/make_all.sh
+END

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/tsunami-benchmarks/!svn/ver/22/honshu/geoclaw/tidegauge-hana
+END
+honshu-usgs.txt
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/tsunami-benchmarks/!svn/ver/22/honshu/geoclaw/tidegauge-hana/honshu-usgs.txt
+END
+setplot.py
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/tsunami-benchmarks/!svn/ver/18/honshu/geoclaw/tidegauge-hana/setplot.py
+END
+maketopo.py
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/tsunami-benchmarks/!svn/ver/22/honshu/geoclaw/tidegauge-hana/maketopo.py
+END
+setrun.py
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/tsunami-benchmarks/!svn/ver/18/honshu/geoclaw/tidegauge-hana/setrun.py
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/tsunami-benchmarks/!svn/ver/22/honshu/geoclaw/tidegauge-hana/README.txt
+END
+honshu-ucsb.txt
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/tsunami-benchmarks/!svn/ver/18/honshu/geoclaw/tidegauge-hana/honshu-ucsb.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/tsunami-benchmarks/!svn/ver/18/honshu/geoclaw/tidegauge-hana/Makefile
+END
+make_all.sh
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/tsunami-benchmarks/!svn/ver/18/honshu/geoclaw/tidegauge-hana/make_all.sh
+END

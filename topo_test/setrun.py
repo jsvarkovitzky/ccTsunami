@@ -109,8 +109,8 @@ def setrun(claw_pkg='geoclaw'):
 
     if clawdata.outstyle==1:
         # Output nout frames at equally spaced times up to tfinal:
-        clawdata.nout = 40
-        clawdata.tfinal = 4.0
+        clawdata.nout = 20
+        clawdata.tfinal = 2.0
 
     elif clawdata.outstyle == 2:
         # Specify a list of output times.

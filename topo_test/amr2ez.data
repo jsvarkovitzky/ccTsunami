@@ -9,9 +9,9 @@
 0                         =: mxnest       (max number of grid levels)
 2 4                       =: inratx       (refinement ratios)
 
-40                        =: nout         (number of output times)
+20                        =: nout         (number of output times)
 1                         =: outstyle     (style of specifying output times)
-4.0                       =: tfinal       (final time)
+2.0                       =: tfinal       (final time)
 
 0.016                     =: dt_initial   (initial time step dt)
 1e+99                     =: dt_max       (max allowable dt)

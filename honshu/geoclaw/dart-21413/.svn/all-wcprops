@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/tsunami-benchmarks/!svn/ver/56/honshu/geoclaw/dart-21413
+END
+honshu-usgs.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/tsunami-benchmarks/!svn/ver/22/honshu/geoclaw/dart-21413/honshu-usgs.txt
+END
+setplot.py
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/tsunami-benchmarks/!svn/ver/15/honshu/geoclaw/dart-21413/setplot.py
+END
+maketopo.py
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/tsunami-benchmarks/!svn/ver/22/honshu/geoclaw/dart-21413/maketopo.py
+END
+setplot_compare.py
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/tsunami-benchmarks/!svn/ver/56/honshu/geoclaw/dart-21413/setplot_compare.py
+END
+setrun.py
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/tsunami-benchmarks/!svn/ver/56/honshu/geoclaw/dart-21413/setrun.py
+END
+21413_notide.txt
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/tsunami-benchmarks/!svn/ver/17/honshu/geoclaw/dart-21413/21413_notide.txt
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/tsunami-benchmarks/!svn/ver/22/honshu/geoclaw/dart-21413/README.txt
+END
+honshu-ucsb.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/tsunami-benchmarks/!svn/ver/14/honshu/geoclaw/dart-21413/honshu-ucsb.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/tsunami-benchmarks/!svn/ver/17/honshu/geoclaw/dart-21413/Makefile
+END
+make_all.sh
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/tsunami-benchmarks/!svn/ver/15/honshu/geoclaw/dart-21413/make_all.sh
+END

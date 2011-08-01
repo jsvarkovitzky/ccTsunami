@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/tsunami-benchmarks/!svn/ver/115/honshu/sources
+END
+honshu-ucsb3.txt
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/tsunami-benchmarks/!svn/ver/24/honshu/sources/honshu-ucsb3.txt
+END
+honshu-usgs.txt
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/tsunami-benchmarks/!svn/ver/7/honshu/sources/honshu-usgs.txt
+END
+make_dtopo.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/tsunami-benchmarks/!svn/ver/115/honshu/sources/make_dtopo.py
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/tsunami-benchmarks/!svn/ver/53/honshu/sources/README.txt
+END
+honshu-ucsb.txt
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/tsunami-benchmarks/!svn/ver/7/honshu/sources/honshu-ucsb.txt
+END

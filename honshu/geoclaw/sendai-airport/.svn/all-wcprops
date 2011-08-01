@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/tsunami-benchmarks/!svn/ver/115/honshu/geoclaw/sendai-airport
+END
+honshu-usgs.txt
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/tsunami-benchmarks/!svn/ver/4/honshu/geoclaw/sendai-airport/honshu-usgs.txt
+END
+setplot.py
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/tsunami-benchmarks/!svn/ver/4/honshu/geoclaw/sendai-airport/setplot.py
+END
+maketopo.py
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/tsunami-benchmarks/!svn/ver/22/honshu/geoclaw/sendai-airport/maketopo.py
+END
+setrun.py
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/tsunami-benchmarks/!svn/ver/115/honshu/geoclaw/sendai-airport/setrun.py
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/tsunami-benchmarks/!svn/ver/22/honshu/geoclaw/sendai-airport/README.txt
+END
+honshu-ucsb.txt
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/tsunami-benchmarks/!svn/ver/4/honshu/geoclaw/sendai-airport/honshu-ucsb.txt
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/tsunami-benchmarks/!svn/ver/4/honshu/geoclaw/sendai-airport/Makefile
+END
+make_all.sh
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/tsunami-benchmarks/!svn/ver/4/honshu/geoclaw/sendai-airport/make_all.sh
+END

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/tsunami-benchmarks/!svn/ver/114/honshu/geoclaw/pacific
+END
+setplot.py
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/tsunami-benchmarks/!svn/ver/114/honshu/geoclaw/pacific/setplot.py
+END
+plot_on_sphere.py
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/tsunami-benchmarks/!svn/ver/114/honshu/geoclaw/pacific/plot_on_sphere.py
+END
+setrun.py
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/tsunami-benchmarks/!svn/ver/114/honshu/geoclaw/pacific/setrun.py
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/tsunami-benchmarks/!svn/ver/114/honshu/geoclaw/pacific/README.txt
+END
+plot_mayavi.py
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/tsunami-benchmarks/!svn/ver/114/honshu/geoclaw/pacific/plot_mayavi.py
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/tsunami-benchmarks/!svn/ver/114/honshu/geoclaw/pacific/Makefile
+END
