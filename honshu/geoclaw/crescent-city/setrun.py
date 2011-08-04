@@ -215,7 +215,7 @@ def setrun(claw_pkg='geoclaw'):
 
 
     # max number of refinement levels:
-    mxnest = 6 ##
+    mxnest = 3 ## 6 was the default
 
     clawdata.mxnest = -mxnest   # negative ==> anisotropic refinement in x,y,t
 
@@ -284,8 +284,8 @@ def setgeo(rundata):
     geodata.frictiondepth = 1.e6
 
     #honshu_dir = '/Users/FrankGonzalez/daily/modeling/tsunami-benchmarks/honshu/' ##
-    honshu_dir = '/bulk/rjl/honshu/' ##
-    
+    #honshu_dir = '/bulk/rjl/honshu/' ##dir on Randy's Machine
+    honshu_dir = '/home/jonathan/research/clawTrunk/myclaw/ccTsunami/honshu/'
     # == settopo.data values ==
     geodata.topofiles = []
     # for topography, append lines of the form
